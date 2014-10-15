@@ -14,6 +14,9 @@
 		53B3B51219EEC0F100BA706F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53B3B51119EEC0F100BA706F /* Images.xcassets */; };
 		53B3B51519EEC0F100BA706F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B3B51319EEC0F100BA706F /* LaunchScreen.xib */; };
 		53B3B52119EEC0F100BA706F /* Overdue_TaskList_AssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3B52019EEC0F100BA706F /* Overdue_TaskList_AssignmentTests.m */; };
+		53B3B52C19EEC51F00BA706F /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3B52B19EEC51F00BA706F /* AddTaskViewController.m */; };
+		53B3B52F19EEC52D00BA706F /* DetailTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3B52E19EEC52D00BA706F /* DetailTaskViewController.m */; };
+		53B3B53219EEC53C00BA706F /* EditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3B53119EEC53C00BA706F /* EditTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		53B3B51A19EEC0F100BA706F /* Overdue TaskList AssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Overdue TaskList AssignmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53B3B51F19EEC0F100BA706F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53B3B52019EEC0F100BA706F /* Overdue_TaskList_AssignmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Overdue_TaskList_AssignmentTests.m; sourceTree = "<group>"; };
+		53B3B52A19EEC51F00BA706F /* AddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskViewController.h; sourceTree = "<group>"; };
+		53B3B52B19EEC51F00BA706F /* AddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskViewController.m; sourceTree = "<group>"; };
+		53B3B52D19EEC52D00BA706F /* DetailTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTaskViewController.h; sourceTree = "<group>"; };
+		53B3B52E19EEC52D00BA706F /* DetailTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTaskViewController.m; sourceTree = "<group>"; };
+		53B3B53019EEC53C00BA706F /* EditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTaskViewController.h; sourceTree = "<group>"; };
+		53B3B53119EEC53C00BA706F /* EditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +92,15 @@
 			children = (
 				53B3B50819EEC0F100BA706F /* AppDelegate.h */,
 				53B3B50919EEC0F100BA706F /* AppDelegate.m */,
+				53B3B50E19EEC0F100BA706F /* Main.storyboard */,
+				53B3B52A19EEC51F00BA706F /* AddTaskViewController.h */,
+				53B3B52B19EEC51F00BA706F /* AddTaskViewController.m */,
+				53B3B52D19EEC52D00BA706F /* DetailTaskViewController.h */,
+				53B3B52E19EEC52D00BA706F /* DetailTaskViewController.m */,
+				53B3B53019EEC53C00BA706F /* EditTaskViewController.h */,
+				53B3B53119EEC53C00BA706F /* EditTaskViewController.m */,
 				53B3B50B19EEC0F100BA706F /* ViewController.h */,
 				53B3B50C19EEC0F100BA706F /* ViewController.m */,
-				53B3B50E19EEC0F100BA706F /* Main.storyboard */,
 				53B3B51119EEC0F100BA706F /* Images.xcassets */,
 				53B3B51319EEC0F100BA706F /* LaunchScreen.xib */,
 				53B3B50419EEC0F100BA706F /* Supporting Files */,
@@ -219,8 +234,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				53B3B50D19EEC0F100BA706F /* ViewController.m in Sources */,
+				53B3B52C19EEC51F00BA706F /* AddTaskViewController.m in Sources */,
 				53B3B50A19EEC0F100BA706F /* AppDelegate.m in Sources */,
+				53B3B53219EEC53C00BA706F /* EditTaskViewController.m in Sources */,
 				53B3B50719EEC0F100BA706F /* main.m in Sources */,
+				53B3B52F19EEC52D00BA706F /* DetailTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

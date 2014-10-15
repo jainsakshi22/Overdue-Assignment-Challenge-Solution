@@ -24,4 +24,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)reorderBarButtonItemPressed:(UIBarButtonItem *)sender {
+}
+
+- (IBAction)addBarButtonItemPressed:(UIBarButtonItem *)sender {
+}
 @end
