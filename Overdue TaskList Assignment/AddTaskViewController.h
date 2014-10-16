@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Task.h"
+
+@protocol AddTaskViewControllerDelegate <NSObject>
+
+-(void)didCancel;
+-(void)didAddTask : (Task *)task;
+
+@end
 
 @interface AddTaskViewController : UIViewController
+
+@property (weak,nonatomic) id <AddTaskViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UITextView *textView;
@@ -16,6 +26,5 @@
 
 - (IBAction)addTaskBarButtonItemPressed:(UIButton *)sender;
 - (IBAction)cancelBarButtonItemPressed:(UIButton *)sender;
-
 
 @end

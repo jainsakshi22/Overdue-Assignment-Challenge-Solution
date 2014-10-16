@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,9 +35,25 @@
 }
 */
 
-- (IBAction)addTaskBarButtonItemPressed:(UIButton *)sender {
+-(Task *)returnNewtaskObject
+{
+    Task *task = [[Task alloc] init];
+    task.title = self.textField.text;
+    task.description = self.textView.text;
+    task.date = self.datePicker.date;
+    task.isCompleted = NO;  //Why is it set to NO
+    
+    return task;
+    
 }
 
-- (IBAction)cancelBarButtonItemPressed:(UIButton *)sender {
+- (IBAction)addTaskBarButtonItemPressed:(UIButton *)sender
+{
+    [self.delegate didAddTask:[self returnNewtaskObject]];
+}
+
+- (IBAction)cancelBarButtonItemPressed:(UIButton *)sender
+{
+    [self.delegate didCancel];
 }
 @end

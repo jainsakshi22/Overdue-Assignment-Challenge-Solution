@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CB12BB3C-C6B1-49E0-850D-E10D3E46E22E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Overdue TaskList Assignment</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5289B52B0A81E2CB0DD8D0B9FE97E6F87C4515B3</key>
+		<string>https://github.com/jainsakshi22/Overdue-Assignment-Challenge-Solution.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Overdue TaskList Assignment.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5289B52B0A81E2CB0DD8D0B9FE97E6F87C4515B3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jainsakshi22/Overdue-Assignment-Challenge-Solution.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5289B52B0A81E2CB0DD8D0B9FE97E6F87C4515B3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5289B52B0A81E2CB0DD8D0B9FE97E6F87C4515B3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Overdue%20TaskList%20Assignment</string>
+		</dict>
+	</array>
+</dict>
+</plist>

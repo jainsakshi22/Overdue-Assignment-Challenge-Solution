@@ -17,6 +17,7 @@
 		53B3B52C19EEC51F00BA706F /* AddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3B52B19EEC51F00BA706F /* AddTaskViewController.m */; };
 		53B3B52F19EEC52D00BA706F /* DetailTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3B52E19EEC52D00BA706F /* DetailTaskViewController.m */; };
 		53B3B53219EEC53C00BA706F /* EditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3B53119EEC53C00BA706F /* EditTaskViewController.m */; };
+		53B3B53719EF113800BA706F /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 53B3B53619EF113800BA706F /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,9 @@
 		53B3B52E19EEC52D00BA706F /* DetailTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTaskViewController.m; sourceTree = "<group>"; };
 		53B3B53019EEC53C00BA706F /* EditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTaskViewController.h; sourceTree = "<group>"; };
 		53B3B53119EEC53C00BA706F /* EditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTaskViewController.m; sourceTree = "<group>"; };
+		53B3B53319EF0E3900BA706F /* Overdue TaskList Assignment.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Overdue TaskList Assignment.pch"; sourceTree = "<group>"; };
+		53B3B53519EF113800BA706F /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		53B3B53619EF113800BA706F /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				53B3B50C19EEC0F100BA706F /* ViewController.m */,
 				53B3B51119EEC0F100BA706F /* Images.xcassets */,
 				53B3B51319EEC0F100BA706F /* LaunchScreen.xib */,
+				53B3B53419EF10FA00BA706F /* Models */,
 				53B3B50419EEC0F100BA706F /* Supporting Files */,
 			);
 			path = "Overdue TaskList Assignment";
@@ -111,6 +116,7 @@
 		53B3B50419EEC0F100BA706F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				53B3B53319EF0E3900BA706F /* Overdue TaskList Assignment.pch */,
 				53B3B50519EEC0F100BA706F /* Info.plist */,
 				53B3B50619EEC0F100BA706F /* main.m */,
 			);
@@ -132,6 +138,15 @@
 				53B3B51F19EEC0F100BA706F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		53B3B53419EF10FA00BA706F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				53B3B53519EF113800BA706F /* Task.h */,
+				53B3B53619EF113800BA706F /* Task.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53B3B53719EF113800BA706F /* Task.m in Sources */,
 				53B3B50D19EEC0F100BA706F /* ViewController.m in Sources */,
 				53B3B52C19EEC51F00BA706F /* AddTaskViewController.m in Sources */,
 				53B3B50A19EEC0F100BA706F /* AppDelegate.m in Sources */,
@@ -360,6 +376,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Overdue TaskList Assignment/Overdue TaskList Assignment.pch";
 				INFOPLIST_FILE = "Overdue TaskList Assignment/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -370,6 +388,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Overdue TaskList Assignment/Overdue TaskList Assignment.pch";
 				INFOPLIST_FILE = "Overdue TaskList Assignment/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -429,6 +449,7 @@
 				53B3B52619EEC0F100BA706F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53B3B52719EEC0F100BA706F /* Build configuration list for PBXNativeTarget "Overdue TaskList AssignmentTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +458,7 @@
 				53B3B52919EEC0F100BA706F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
