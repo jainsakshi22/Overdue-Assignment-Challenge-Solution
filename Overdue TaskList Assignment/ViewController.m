@@ -88,10 +88,20 @@
     NSString *stringFromdate = [formatter stringFromDate:taskObject.date];
     cell.detailTextLabel.text = stringFromdate;
     
+    BOOL isOverDue = [self isDateGreaterThanDate:[NSDate date] and:taskObject.date];
+    
+    if (isOverDue == YES) cell.backgroundColor = [UIColor redColor];
+    else cell.backgroundColor = [UIColor yellowColor];
+    
     return cell;
 }
 
-//#pragma mark - UITableViewDelegate method
+#pragma mark - UITableViewDelegate method
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 
 #pragma mark - AddTaskViewControllerDelegate methods
@@ -132,6 +142,15 @@
     Task *taskObject = [[Task alloc] initWithData:dictionary];
     
     return taskObject;
+}
+
+-(BOOL)isDateGreaterThanDate: (NSDate *) date and: (NSDate *)toDate
+{
+    int dateInterval = [date timeIntervalSince1970];
+    int toDateInterval = [toDate timeIntervalSince1970];
+    
+    if (dateInterval > toDateInterval) return YES;
+    else return NO;
 }
 
 @end
