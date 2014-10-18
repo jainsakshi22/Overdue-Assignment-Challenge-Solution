@@ -90,19 +90,44 @@
     
     BOOL isOverDue = [self isDateGreaterThanDate:[NSDate date] and:taskObject.date];
     
-    if (taskObject.isCompleted == YES) cell.backgroundColor = [UIColor greenColor];
-    else if (isOverDue == YES) cell.backgroundColor = [UIColor redColor]; 
-    else cell.backgroundColor = [UIColor yellowColor];
+    if (taskObject.isCompleted == YES) cell.backgroundColor = [UIColor greenColor];// If present date <task date and task is completed
+    else if (isOverDue == YES) cell.backgroundColor = [UIColor redColor]; // If present date> Task date
+    else cell.backgroundColor = [UIColor yellowColor];// If present date < task date and task is not completed
     
     return cell;
 }
 
 #pragma mark - UITableViewDelegate method
 
+//Completion of task
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Task *task = [self.taskObjects objectAtIndex:indexPath.row];
     [self updateCompletionOfTask:task forIndexPath:indexPath];
+}
+
+//Deletion of task
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [self.taskObjects removeObjectAtIndex:indexPath.row];
+        
+        NSMutableArray *newTaskDataObjects = [[NSMutableArray alloc] init];
+        for (Task *task in self.taskObjects)
+        {
+            [newTaskDataObjects addObject:[self taskObjectAsAPropertyList:task]];
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:newTaskDataObjects forKey:TASK_OBJECTS_KEY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
 }
 
 
@@ -166,7 +191,7 @@
     if (task.isCompleted == YES) task.isCompleted = NO; //change status on tapping, so that color can be changed to Green and Yellow/Red. Yelow or red will be decided on isDareGreaterThanDate method.
     else task.isCompleted = YES;
     
-    [taskObjectsAsPropertyLists insertObject: [self taskObjectAsAPropertyList:task] atIndex:indexPath.row]; //Add object as a dictionary
+    [taskObjectsAsPropertyLists insertObject: [self taskObjectAsAPropertyList:task] atIndex:indexPath.row]; //Add object as a dictionary. so use taskObjectAsAPropertyList to insert the object
     [[NSUserDefaults standardUserDefaults] setObject:taskObjectsAsPropertyLists forKey:TASK_OBJECTS_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
