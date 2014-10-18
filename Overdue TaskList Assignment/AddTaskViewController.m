@@ -38,8 +38,9 @@
 -(Task *)returnNewtaskObject
 {
     Task *task = [[Task alloc] init];
+    
     task.title = self.textField.text;
-    task.description = self.textView.text;
+    task.description1 = self.textView.text;
     task.date = self.datePicker.date;
     task.isCompleted = NO;  //Why is it set to NO
     
@@ -49,7 +50,8 @@
 
 - (IBAction)addTaskBarButtonItemPressed:(UIButton *)sender
 {
-    [self.delegate didAddTask:[self returnNewtaskObject]];
+    Task *newTask = [self returnNewtaskObject];
+    [self.delegate didAddTask:newTask];
 }
 
 - (IBAction)cancelBarButtonItemPressed:(UIButton *)sender

@@ -23,7 +23,7 @@
     if(self)
     {
         self.title = data[TASK_TITLE];
-        self.description = data[TASK_DESCRIPTION];
+        self.description1 = data[TASK_DESCRIPTION];
         self.date = data[TASK_DATE];
         self.isCompleted = [data[TASK_COMPLETION] boolValue];
     }
