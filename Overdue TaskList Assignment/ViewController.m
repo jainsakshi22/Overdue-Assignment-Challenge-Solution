@@ -60,6 +60,14 @@
         AddTaskViewController *AddTaskVC = segue.destinationViewController;
         AddTaskVC.delegate = self;
     }
+    
+    else if ([segue.destinationViewController isKindOfClass:[DetailTaskViewController class]])
+    {
+        DetailTaskViewController *detailTaskVC = segue.destinationViewController;
+        NSIndexPath *path = sender;
+        Task *taskObject = [self.taskObjects objectAtIndex:path.row];
+        detailTaskVC.task = taskObject;
+    }
 }
 
 #pragma mark - UITableViewDataSource method
@@ -84,7 +92,7 @@
     cell.textLabel.text = taskObject.title;
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-mm-dd"];
+    [formatter setDateFormat:@"yyyy-MM-dd"];
     NSString *stringFromdate = [formatter stringFromDate:taskObject.date];
     cell.detailTextLabel.text = stringFromdate;
     
@@ -128,6 +136,11 @@
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+-(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"toDetailTaskViewControllerSegue" sender:indexPath];
 }
 
 
