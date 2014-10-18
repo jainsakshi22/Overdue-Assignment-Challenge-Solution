@@ -90,7 +90,8 @@
     
     BOOL isOverDue = [self isDateGreaterThanDate:[NSDate date] and:taskObject.date];
     
-    if (isOverDue == YES) cell.backgroundColor = [UIColor redColor];
+    if (taskObject.isCompleted == YES) cell.backgroundColor = [UIColor greenColor];
+    else if (isOverDue == YES) cell.backgroundColor = [UIColor redColor]; 
     else cell.backgroundColor = [UIColor yellowColor];
     
     return cell;
@@ -100,7 +101,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    Task *task = [self.taskObjects objectAtIndex:indexPath.row];
+    [self updateCompletionOfTask:task forIndexPath:indexPath];
 }
 
 
@@ -144,6 +146,7 @@
     return taskObject;
 }
 
+//To change the color coding
 -(BOOL)isDateGreaterThanDate: (NSDate *) date and: (NSDate *)toDate
 {
     int dateInterval = [date timeIntervalSince1970];
@@ -152,5 +155,26 @@
     if (dateInterval > toDateInterval) return YES;
     else return NO;
 }
+
+//To change the completion of task. Used in -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath method
+-(void)updateCompletionOfTask : (Task *)task forIndexPath: (NSIndexPath *)indexPath
+{
+    NSMutableArray *taskObjectsAsPropertyLists = [[[NSUserDefaults standardUserDefaults] arrayForKey:TASK_OBJECTS_KEY] mutableCopy];
+    if (!taskObjectsAsPropertyLists) taskObjectsAsPropertyLists = [[NSMutableArray alloc] init];
+    [taskObjectsAsPropertyLists removeObjectAtIndex:indexPath.row];
+    
+    if (task.isCompleted == YES) task.isCompleted = NO; //change status on tapping, so that color can be changed to Green and Yellow/Red. Yelow or red will be decided on isDareGreaterThanDate method.
+    else task.isCompleted = YES;
+    
+    [taskObjectsAsPropertyLists insertObject: [self taskObjectAsAPropertyList:task] atIndex:indexPath.row]; //Add object as a dictionary
+    [[NSUserDefaults standardUserDefaults] setObject:taskObjectsAsPropertyLists forKey:TASK_OBJECTS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.tableView reloadData];
+    
+}
+
+
+
 
 @end
