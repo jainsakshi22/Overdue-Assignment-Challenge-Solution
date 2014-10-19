@@ -45,7 +45,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)reorderBarButtonItemPressed:(UIBarButtonItem *)sender {
+- (IBAction)reorderBarButtonItemPressed:(UIBarButtonItem *)sender
+{
+    if (self.tableView.editing == YES) [self.tableView setEditing:NO animated:YES];
+    else [self.tableView setEditing:YES animated:YES];
 }
 
 - (IBAction)addBarButtonItemPressed:(UIBarButtonItem *)sender
@@ -67,6 +70,7 @@
         NSIndexPath *path = sender;
         Task *taskObject = [self.taskObjects objectAtIndex:path.row];
         detailTaskVC.task = taskObject;
+        
     }
 }
 
@@ -143,6 +147,18 @@
     [self performSegueWithIdentifier:@"toDetailTaskViewControllerSegue" sender:indexPath];
 }
 
+-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+    Task *task = self.taskObjects[sourceIndexPath.row];
+    [self.taskObjects removeObjectAtIndex:sourceIndexPath.row];
+    [self.taskObjects insertObject:task atIndex:destinationIndexPath.row];
+    
+}
 
 #pragma mark - AddTaskViewControllerDelegate methods
 
@@ -211,6 +227,21 @@
     [self.tableView reloadData];
     
 }
+
+//-(void)saveTasks
+//{
+//    NSMutableArray *tasks = [[NSMutableArray alloc] init];
+//    
+//    for (Task *task in self.taskObjects)
+//    {
+//        [tasks addObject:[self taskObjectAsAPropertyList:task]];
+//    }
+//    
+//    
+//}
+
+
+
 
 
 
