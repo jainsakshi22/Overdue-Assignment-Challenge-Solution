@@ -158,6 +158,7 @@
     [self.taskObjects removeObjectAtIndex:sourceIndexPath.row];
     [self.taskObjects insertObject:task atIndex:destinationIndexPath.row];
     
+    [self saveTasks];
 }
 
 #pragma mark - AddTaskViewControllerDelegate methods
@@ -228,17 +229,20 @@
     
 }
 
-//-(void)saveTasks
-//{
-//    NSMutableArray *tasks = [[NSMutableArray alloc] init];
-//    
-//    for (Task *task in self.taskObjects)
-//    {
-//        [tasks addObject:[self taskObjectAsAPropertyList:task]];
-//    }
-//    
-//    
-//}
+//To save the task after reordering. Used in -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+-(void)saveTasks
+{
+    NSMutableArray *tasksAfterReorder = [[NSMutableArray alloc] init];
+    
+    for (Task *task in self.taskObjects)
+    {
+        [tasksAfterReorder addObject:[self taskObjectAsAPropertyList:task]];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] setObject:tasksAfterReorder forKey:TASK_OBJECTS_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+}
 
 
 
