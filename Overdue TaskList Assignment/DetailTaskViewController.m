@@ -33,6 +33,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[EditTaskViewController class]])
+    {
+        EditTaskViewController *editTaskVC = segue.destinationViewController;
+        editTaskVC.task = self.task;
+    }
+}
+
 /*
 #pragma mark - Navigation
 
@@ -45,5 +54,6 @@
 
 - (IBAction)editBarButtonItemPressed:(UIBarButtonItem *)sender
 {
+    [self performSegueWithIdentifier:@"toEditTaskViewControllerSegue" sender:sender];
 }
 @end

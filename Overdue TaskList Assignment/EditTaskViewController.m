@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.textField.text = self.task.title;
+    self.textView.text = self.task.description1;
+    self.datePicker.date = self.task.date;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +38,8 @@
 }
 */
 
-- (IBAction)actionBarButtonItemPressed:(UIBarButtonItem *)sender {
+- (IBAction)actionBarButtonItemPressed:(UIBarButtonItem *)sender
+{
+    
 }
 @end

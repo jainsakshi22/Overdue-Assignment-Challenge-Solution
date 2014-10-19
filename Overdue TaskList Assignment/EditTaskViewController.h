@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailTaskViewController.h"
+#import "Task.h"
 
 @interface EditTaskViewController : UIViewController
+
+@property(strong,nonatomic) Task *task;
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UITextView *textView;

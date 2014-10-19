@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Task.h"
+#import "EditTaskViewController.h"
 
 @interface DetailTaskViewController : UIViewController
 
