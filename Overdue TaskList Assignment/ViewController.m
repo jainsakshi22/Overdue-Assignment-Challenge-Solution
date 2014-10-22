@@ -189,7 +189,7 @@
 //Helper method for -(void)didAddTask:(Task *)task method
 -(NSDictionary *)taskObjectAsAPropertyList : (Task *)taskObject
 {
-    NSDictionary *dictionary = @{TASK_TITLE : taskObject.title, TASK_DESCRIPTION : taskObject.description, TASK_DATE: taskObject.date,TASK_COMPLETION: @(taskObject.isCompleted)};
+    NSDictionary *dictionary = @{TASK_TITLE : taskObject.title, TASK_DESCRIPTION : taskObject.description1, TASK_DATE: taskObject.date,TASK_COMPLETION: @(taskObject.isCompleted)};
     
     return dictionary;
 }

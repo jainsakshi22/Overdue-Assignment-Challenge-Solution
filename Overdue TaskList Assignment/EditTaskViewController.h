@@ -10,9 +10,17 @@
 #import "DetailTaskViewController.h"
 #import "Task.h"
 
+@protocol EditViewControllerDelegate <NSObject>
+
+//@required
+-(void)didUpdateTask : (Task *)task;
+
+@end
+
 @interface EditTaskViewController : UIViewController
 
 @property(strong,nonatomic) Task *task;
+@property (weak,nonatomic) id <EditViewControllerDelegate> delegate;
 
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 @property (strong, nonatomic) IBOutlet UITextView *textView;

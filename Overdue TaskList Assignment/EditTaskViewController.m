@@ -40,6 +40,20 @@
 
 - (IBAction)actionBarButtonItemPressed:(UIBarButtonItem *)sender
 {
-    
+    [self updateTask];
+    [self.delegate didUpdateTask:[self updateTask]];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark -helper method
+
+-(Task *)updateTask
+{
+    self.task.title = self.textField.text;
+    self.task.description1 = self.textView.text;
+    self.task.date = self.datePicker.date;
+    
+    return self.task;
+}
+
 @end
